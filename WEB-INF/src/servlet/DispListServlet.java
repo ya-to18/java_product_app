@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,10 @@ public class DispListServlet extends HttpServlet {
         // リクエスト・レスポンスの設定
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
+        // JSPからのリクエストデータ取得
+        String order = request.getParameter("order");
+        order = Objects.toString(order, ""); // NULLは空文字に置き換え
 
         // 商品データリストのインスタンスを生成
         ArrayList<ProductDto> productList = new ArrayList<ProductDto>();
@@ -29,8 +34,8 @@ public class DispListServlet extends HttpServlet {
         ProductDao product = new ProductDao();
 
         try {
-            // 商品データの一覧を取得（ID指定・並べ替え・検索なし）
-            productList = product.read(0, "", "");
+            // 商品データの一覧を取得（ID指定・検索なし）
+            productList = product.read(0, order, "");
 
             if (productList.isEmpty()) {
                 // 商品データリストが空だった場合はメッセージを送る

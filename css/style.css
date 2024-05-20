@@ -101,6 +101,27 @@ footer {
 	margin-bottom: 1.5rem;
 }
 
+.products-ui div {
+	display: flex;
+	align-items: flex-end;
+}
+
+@media (max-width: 959px) {
+	.products-ui {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.products-ui div {
+		margin-bottom: 1.5rem;
+	}
+}
+
+.sort-img {
+	height: 1.75rem;
+	vertical-align: top;
+}
+
 .products-table {
 	width: 100%;
 	margin: 0 auto;
