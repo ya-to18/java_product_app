@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Objects" %>
 <%@ page import="data.ProductDto"%>
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,6 +20,16 @@
         </nav>
     </header>
     <main>
+    	<%
+    	// 最後に送信されたデータを取得
+    	// 検索キーワード
+    	String keyword = request.getParameter("keyword");
+    	keyword = Objects.toString(keyword, "");
+    	
+    	// 並べ替え方向
+    	String order = request.getParameter("order");
+    	order = Objects.toString(order, "");
+    	%>
         <article class="products">
             <h1>商品一覧</h1>
             <%
@@ -30,12 +41,16 @@
             %>
             <div class="products-ui">
                 <div>
-                    <a href="<%= request.getContextPath() %>/list?order=desc">
+                    <a href="<%= request.getContextPath() %>/list?order=desc&keyword=<%= keyword %>">
                     	<img alt="降順に並べ替え" src="images/desc.png" class="sort-img">
                     </a>
-                    <a href="<%= request.getContextPath() %>/list?order=asc">
+                    <a href="<%= request.getContextPath() %>/list?order=asc&keyword=<%= keyword %>">
                     	<img alt="昇順に並べ替え" src="images/asc.png" class="sort-img">
                     </a>
+                    <form action="<%= request.getContextPath() %>/list" method="get" class="search-form">
+                    	<input type="hidden" name="order" value="<%= order %>">
+                    	<input type="text" name="keyword" class="search-box" placeholder="商品名で検索" value="<%= keyword %>">
+                    </form>
                 </div>
                 <a href="<%= request.getContextPath() %>/register" class="btn">商品登録</a>
             </div>

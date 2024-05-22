@@ -26,6 +26,9 @@ public class DispListServlet extends HttpServlet {
         // JSPからのリクエストデータ取得
         String order = request.getParameter("order");
         order = Objects.toString(order, ""); // NULLは空文字に置き換え
+        
+        String keyword = request.getParameter("keyword");
+        keyword = Objects.toString(keyword ,"");
 
         // 商品データリストのインスタンスを生成
         ArrayList<ProductDto> productList = new ArrayList<ProductDto>();
@@ -35,7 +38,7 @@ public class DispListServlet extends HttpServlet {
 
         try {
             // 商品データの一覧を取得（ID指定・検索なし）
-            productList = product.read(0, order, "");
+            productList = product.read(0, order, keyword);
 
             if (productList.isEmpty()) {
                 // 商品データリストが空だった場合はメッセージを送る

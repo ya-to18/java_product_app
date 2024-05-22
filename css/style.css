@@ -122,6 +122,20 @@ footer {
 	vertical-align: top;
 }
 
+.search-form {
+	margin-left: 0.75rem;
+}
+
+.search-box {
+	box-sizing: border-box;
+	max-width: 300px;
+	height: 1.75rem;
+	padding: 0.25rem 0.5rem;
+	background: #eee;
+	border: none;
+	outline: 0;
+}
+
 .products-table {
 	width: 100%;
 	margin: 0 auto;
