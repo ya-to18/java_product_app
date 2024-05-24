@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class VendorDao {
 	
-    private static final String URL = "jdbc:mariadb://localhost8889/java_db_app"; // MAMPの場合は"localhost:8889"としてください
+    private static final String URL = "jdbc:mariadb://localhost:8889/java_db_app"; // MAMPの場合は"localhost:8889"としてください
     private static final String USER_NAME = "root";
     private static final String PASSWORD = "root";
 

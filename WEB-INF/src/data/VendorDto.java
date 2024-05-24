@@ -3,7 +3,7 @@ package data;
 public class VendorDto {
 	private int vendorCode = 0;
 	
-	public int getVebdorCode() {
+	public int getVendorCode() {
 		return this.vendorCode;
 	}
 	
