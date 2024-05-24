@@ -167,6 +167,10 @@ footer {
 	display: none;
 }
 
+.success {
+	color: #28a745;
+}
+
 .failure {
 	color: #dc3545;
 }

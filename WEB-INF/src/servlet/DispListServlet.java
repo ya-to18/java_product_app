@@ -54,4 +54,25 @@ public class DispListServlet extends HttpServlet {
         // フォワードによる画面遷移
         request.getRequestDispatcher("/WEB-INF/jsp/listPage.jsp").forward(request, response);
     }
+    
+    // POSTメソッドのリクエスト受信時に実行されるメソッド
+    // ※ServletのdoPost()メソッドから遷移した場合のみ実行される
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    		throws ServletException, IOException {
+    	
+    	// リクエスト・レスポンスの設定
+    	request.setCharacterEncoding("UTF-8");
+    	response.setContentType("text/html; charset=UTF-8");
+    	
+    	// Servletからの成功メッセージ取得
+    	String successMessage = (String) request.getAttribute("successMessage");
+    	
+    	if(successMessage != null && !successMessage.isEmpty()) {
+    		// 商品一覧ページのJSPへ成功メッセージを受け渡すために再設定
+    		request.setAttribute("successMessage", successMessage);
+    	}
+    	
+    	// doGet()メソッドと同様のデータ取得処理を行う
+    	doGet(request, response);
+    }
 }

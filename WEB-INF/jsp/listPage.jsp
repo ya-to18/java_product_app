@@ -33,6 +33,12 @@
         <article class="products">
             <h1>商品一覧</h1>
             <%
+            // 成功メッセージがあれば表示
+            String successMessage = (String) request.getAttribute("successMessage");
+            if(successMessage != null && !successMessage.isEmpty()) {
+            	out.println("<p class='success'>" + successMessage + "</p>");
+            }
+
             // 失敗メッセージがあれば表示
             String failureMessage = (String) request.getAttribute("failureMessage");
             if (failureMessage != null && !failureMessage.isEmpty()) {
