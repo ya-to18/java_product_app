@@ -175,6 +175,11 @@ footer {
 	color: #dc3545;
 }
 
+.edit-icon {
+	height: 1.5rem;
+	vertical-align: top;
+}
+
 /* registerPage.jsp */
  .registration {
      box-sizing: border-box;

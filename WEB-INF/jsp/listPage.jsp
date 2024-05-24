@@ -68,6 +68,7 @@
                     <th>単価</th>
                     <th>在庫数</th>
                     <th>仕入先コード</th>
+                    <th>編集</th>
                 </tr>
                 <%
                 // 商品データリストを取得
@@ -83,6 +84,21 @@
                         out.println("<td>" + product.getPrice() + "</td>");
                         out.println("<td>" + product.getStockQuantity() + "</td>");
                         out.println("<td>" + product.getVendorCode() + "</td>");
+                        out.println("<td><a href='" + request.getContextPath() + "/edit?id="
+                                + product.getId() + "'><img src='images/edit.png' alt='編集' class='edit-icon'></a></td>");
+                  out.println("</tr>");
+              }
+          }
+          %>
+      </table>
+  </article>
+</main>
+<footer>
+  <p class="copyright">&copy; 商品管理アプリ All rights reserved.</p>
+</footer>
+</body>
+</html>
+
                         out.println("</tr>");
                     }
                 }
