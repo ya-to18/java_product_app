@@ -175,7 +175,8 @@ footer {
 	color: #dc3545;
 }
 
-.edit-icon {
+.edit-icon,
+.delete-icon {
 	height: 1.5rem;
 	vertical-align: top;
 }

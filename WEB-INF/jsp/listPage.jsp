@@ -69,6 +69,7 @@
                     <th>在庫数</th>
                     <th>仕入先コード</th>
                     <th>編集</th>
+                    <th>削除</th>
                 </tr>
                 <%
                 // 商品データリストを取得
@@ -86,6 +87,9 @@
                         out.println("<td>" + product.getVendorCode() + "</td>");
                         out.println("<td><a href='" + request.getContextPath() + "/edit?id="
                                 + product.getId() + "'><img src='images/edit.png' alt='編集' class='edit-icon'></a></td>");
+                        out.println("<td><a href='" + request.getContextPath() + "/delete?id=" + product.getId()
+                        + "' onclick=\"return confirm('この操作は元に戻せません。商品名：" + product.getProductName() + "を本当に削除しますか？')\">"
+                        + "<img src='images/delete.png' alt='削除' class='delete-icon'></a></td>");
                   out.println("</tr>");
               }
           }
